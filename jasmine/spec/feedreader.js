@@ -94,8 +94,8 @@ $(function () {
         });
 
         it('has at least a single entry in feed', () => {
-            const feed = document.querySelector('.feed');
-            expect(feed.children.length > 0).toBe(true);
+            const feed = document.querySelector('.feed .entry').children.length;
+            expect(feed > 0).toBe(true);
         });
     });
 
