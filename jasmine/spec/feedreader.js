@@ -33,8 +33,7 @@ $(function () {
          */
         it('url defined', () => {
             for (let feed of allFeeds) {
-                expect(feed.url).toBeDefined();
-                expect(feed.url.length).not.toBe(0);
+                expect(feed.url).toBeTruthy();
             }
         });
 
@@ -45,8 +44,7 @@ $(function () {
          */
         it('name defined', () => {
             for (let feed of allFeeds) {
-                expect(feed.name).toBeDefined();
-                expect(feed.name.length).not.toBe(0);
+                expect(feed.name).toBeTruthy();
             }
         });
     });
@@ -94,7 +92,7 @@ $(function () {
         });
 
         it('has at least a single entry in feed', () => {
-            const feed = document.querySelector('.feed .entry').children.length;
+            const feed = document.querySelectorAll('.feed .entry').length;
             expect(feed > 0).toBe(true);
         });
     });
@@ -105,19 +103,20 @@ $(function () {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        let oldFeed;
+        let firstFeed;
 
         beforeEach((done) => {
             loadFeed(0, () => {
-                oldFeed = document.querySelector('.feed').innerHTML;
+                firstFeed = document.querySelector('.feed').innerHTML;
+                loadFeed(1, () => {
+                    done();
+                });
             });
-            loadFeed(1, done);
         });
 
         it('has changed content', () => {
             let newFeed = document.querySelector('.feed').innerHTML;
-            expect(newFeed).not.toEqual(oldFeed);
+            expect(newFeed).not.toEqual(firstFeed);
         });
     });
-
 }());
