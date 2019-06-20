@@ -7,7 +7,7 @@ It was a requirement for the 2019 Udacity Front-End Nanodegree program.
 This tests can be executed by the methods below. All three methods will result in the tests' automatic execution upon loading of the app:
 
 ### Online
-Via [this repo's GitHub hosted page](https://mtshin.github.io/udacity_project_4_feed_reader_testing/#). 
+Via [this repo's GitHub hosted page](https://mtshin.github.io/udacity_project_4_feed_reader_testing/). 
 
 ### Download ZIP
 It can also be ran locally by downloading the project's zip file. Open `index.html` in a browser to execute the app.
